@@ -1,0 +1,14 @@
+# Ignore Docker MySQL Database files
+db/
+*.sock
+*.ibd
+*.ibt
+
+# Ignore compiled Java files
+target/
+*.class
+*.jar
+
+# Ignore IntelliJ settings
+.idea/
+*.iml
