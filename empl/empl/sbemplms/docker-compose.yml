@@ -2,33 +2,36 @@ version: "3.8"
 services:
   mysqldb:
     image: mysql:8.0
-    container_name: mysql2
+    container_name: mysql_spa
     environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: empldb
-      MYSQL_USER: mysqluser
-      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: admin1234
+      MYSQL_DATABASE: spadb
     ports:
-       - "3306:3306"
-       - "33060:33060"
+      - "3306:3306"
     volumes:
       - ./db:/var/lib/mysql
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
-      - emplnetwork
-  empl1:
-    image: emplz
-    container_name: empl_1
+      - spanetwork
+
+  spa-app:
+    build: . # This will build the Dockerfile in your current directory
+    container_name: spa_backend
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/empldb
-      SPRING_DATASOURCE_USERNAME: mysqluser
-      SPRING_DATASOURCE_PASSWORD: password
+      # Match the database name 'spadb' defined above
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/spadb?allowPublicKeyRetrieval=true&useSSL=false
+      # Use 'root' and the root password defined above
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: admin1234
+      # Ensures tables are updated/created on startup
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update 
     ports:
       - "8080:8080"
     depends_on:
       - mysqldb
     networks:
-      emplnetwork:
+      - spanetwork
+
 networks:
-  emplnetwork:
+  spanetwork:
     driver: bridge

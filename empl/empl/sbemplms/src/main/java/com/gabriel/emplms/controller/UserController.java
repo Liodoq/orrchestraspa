@@ -85,4 +85,14 @@ public class UserController {
         }
         return response;
     }
+
+    @PostMapping("/api/user/login")
+    public ResponseEntity<?> login(@RequestBody User loginRequest) {
+    try {
+        User user = userDataService.login(loginRequest.getUserEmail(), loginRequest.getUserPassword());
+        return ResponseEntity.ok(user); // Returns the full user object (including role)
+    } catch (Exception e) { // Change RuntimeException to Exception
+    return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
+    }
+    }
 }

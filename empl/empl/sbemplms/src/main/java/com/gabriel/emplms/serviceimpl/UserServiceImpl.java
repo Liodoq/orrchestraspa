@@ -86,4 +86,19 @@ public class UserServiceImpl implements UserDataService {
             logger.info(" Failed >> unable to locate user id: " + Integer.toString(id));
         }
     }
+
+    @Override
+    public User login(String email, String password) {
+    // 1. Find the user by email
+    UserData userData = userDataRepository.findByUserEmail(email)
+            .orElseThrow(() -> new RuntimeException("User not found"));
+
+    // 2. Check if the password matches
+    if (userData.getUserPassword().equals(password)) {
+        // 3. If correct, transform the entity back to a Model and return it
+        return transformUserService.transform(userData);
+    } else {
+        throw new RuntimeException("Invalid Password");
+    }
+}
 }
