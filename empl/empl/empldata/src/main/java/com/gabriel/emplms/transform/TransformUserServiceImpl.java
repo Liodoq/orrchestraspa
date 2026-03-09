@@ -11,6 +11,7 @@ public class TransformUserServiceImpl implements TransformUserService {
     public UserData transform(User user) {
         UserData userData = new UserData();
         // Map the fields from model to entity
+        userData.setUserId(user.getUserId());
         userData.setUserName(user.getUserName());
         userData.setUserEmail(user.getUserEmail());
         userData.setUserPassword(user.getUserPassword());
@@ -22,6 +23,7 @@ public class TransformUserServiceImpl implements TransformUserService {
     public User transform(UserData userData) {
         User user = new User();
         // Map the fields from model to entity
+        user.setUserId(userData.getUserId());
         user.setUserName(userData.getUserName());
         user.setUserEmail(userData.getUserEmail());
         user.setUserPassword(userData.getUserPassword());

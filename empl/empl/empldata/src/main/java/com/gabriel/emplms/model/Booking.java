@@ -10,7 +10,7 @@ public class Booking {
     private int userId;
     private int serviceId;
     private Status status;
-    private Notification notification;
+    private int notificationId;
 
     private String bookingDate; 
     private String bookingTime; 

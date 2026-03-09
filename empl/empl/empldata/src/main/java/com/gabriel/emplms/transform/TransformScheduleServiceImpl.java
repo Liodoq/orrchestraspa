@@ -10,7 +10,8 @@ public class TransformScheduleServiceImpl implements TransformScheduleService {
     @Override
     public ScheduleData transform(Schedule schedule) {
         ScheduleData scheduleData = new ScheduleData();
-        // Map the fields from model to entity
+        
+        scheduleData.setScheduleId(schedule.getScheduleId());
         scheduleData.setAvailableDate(schedule.getAvailableDate());
         scheduleData.setAvailableTime(schedule.getAvailableTime());
         
@@ -22,7 +23,7 @@ public class TransformScheduleServiceImpl implements TransformScheduleService {
     @Override
     public Schedule transform(ScheduleData scheduleData) {
         Schedule schedule = new Schedule();
-        // Map the fields from model to entity
+        schedule.setScheduleId(scheduleData.getScheduleId());
         schedule.setAvailableDate(scheduleData.getAvailableDate());
         schedule.setAvailableTime(scheduleData.getAvailableTime());
         

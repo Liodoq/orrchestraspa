@@ -8,7 +8,7 @@ import lombok.Data;
 public class Notification {
 
     private int notificationId;
-    private Booking booking;
+    private int bookingId;
 
     private String message;
     private boolean isRead;

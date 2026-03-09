@@ -1,6 +1,6 @@
 package com.gabriel.emplms.repository;
 import com.gabriel.emplms.entity.ScheduleData;
-import org.springframework.data.repository.CrudRepository;
-public interface ScheduleDataRepository extends CrudRepository<ScheduleData,Integer>{
+import org.springframework.data.jpa.repository.JpaRepository;
+public interface ScheduleDataRepository extends JpaRepository<ScheduleData,Integer>{
     
 }

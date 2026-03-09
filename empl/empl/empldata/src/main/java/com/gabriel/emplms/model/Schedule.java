@@ -1,11 +1,9 @@
-// Schedule.java
-package com.gabriel.emplms.model;
 
+package com.gabriel.emplms.model;
 
 import lombok.Data;
 
 @Data
-
 public class Schedule {
 
     private int scheduleId;

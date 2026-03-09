@@ -18,7 +18,7 @@ public class NotificationData {
 
     @OneToOne
     @JoinColumn(name = "booking_id")
-    private BookingData bookingData;
+    private BookingData booking;
 
     private String message;
     private boolean isRead;

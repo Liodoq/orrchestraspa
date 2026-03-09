@@ -8,4 +8,5 @@ public interface UserDataService {
     User createUser(User user) throws Exception;
     User updateUser(User user) throws Exception;
     void deleteUser(Integer userId) throws Exception;
+    User login(String email, String password) throws Exception;
 }
