@@ -1,12 +1,10 @@
 package com.gabriel.emplms.service;
 
-import com.gabriel.emplms.entity.ScheduleData;
-import java.util.List;
+import com.gabriel.emplms.model.Schedule;
 
 public interface ScheduleDataService {
-    List<ScheduleData> getAllSchedules() throws Exception;
-    ScheduleData getSchedule(Integer scheduleId) throws Exception;
-    ScheduleData createSchedule(ScheduleData schedule) throws Exception;
-    ScheduleData updateSchedule(ScheduleData schedule) throws Exception;
-    void deleteSchedule(Integer scheduleId) throws Exception;
+    Schedule[] getAllSchedule() throws Exception;
+    Schedule getSchedule(Integer id) throws Exception;
+    Schedule createSchedule(Schedule schedule) throws Exception;
+    void deleteSchedule(Integer id) throws Exception;
 }

@@ -7,8 +7,8 @@ import lombok.Data;
 public class Booking {
 
     private int bookingId;
-    private User user;
-    private Service service;
+    private int userId;
+    private int serviceId;
     private Status status;
     private Notification notification;
 
